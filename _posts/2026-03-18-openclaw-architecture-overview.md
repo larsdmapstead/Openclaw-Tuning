@@ -84,12 +84,6 @@ Two core rules that cannot be overridden:
 - Nightly self-review cron catches drift and auto-applies small fixes (added 3 rules this week automatically)
 - Session watcher creating daily logs gives Orion continuity across fresh sessions
 
-## What We Killed
-
-**Morning Brief pipeline** — three crons running at 6:45/6:55/7:05am generating a daily briefing. Killed it today. The problem: Researcher generates plausible-sounding content, fact-check step strips unverified claims, what's left is hollow scaffolding. In several weeks of running it, the only consistently useful output was an occasional Pollfinity poll idea. Verdict: quality over volume. Will redesign if we revisit.
-
-**NemoClaw watch** — every-4-hour Grok search for NVIDIA NemoClaw releases. Six calls/day with zero alerts over weeks. Disabled. Will check manually when relevant.
-
 ## Next
 
 - Nemotron 120B local deploy (vLLM v0.17.1 path documented, test when needed)
