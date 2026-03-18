@@ -1,0 +1,20 @@
+title: "Openclaw Tuning Log"
+description: "A running log of how we tune and improve our OpenClaw AI instance — configs, crons, agent architecture, and what actually works."
+url: "https://larsdmapstead.github.io"
+baseurl: "/Openclaw-Tuning"
+
+theme: minima
+
+author:
+  name: Lars Mapstead
+
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+markdown: kramdown
+highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
