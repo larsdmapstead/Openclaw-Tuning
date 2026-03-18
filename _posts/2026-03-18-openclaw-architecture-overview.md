@@ -65,7 +65,7 @@ Active crons (as of March 2026):
 | Nightly GitHub Push | 2am PT | Commits and pushes workspace to private GitHub repo |
 | Dream Cycle | 2am PT | Archives old daily logs, refreshes vector index |
 | DGX Health Check | 6am PT | SMART disk check, container status, posts warnings to Discord |
-| Pollfinity Ingest | 7am PT | Runs poll data pipeline, posts summary to #pollfinity channel |
+| Data Ingest | 7am PT | Runs data pipeline, posts summary to Discord |
 | Weekly Memory Distill | Fri 9am | Promotes important facts from daily logs to MEMORY.md |
 | Weekly Log Prune | Sun 4am | Archives daily logs older than 7 days |
 
@@ -86,6 +86,6 @@ Two core rules that cannot be overridden:
 
 ## Next
 
-- Nemotron 120B local deploy (vLLM v0.17.1 path documented, test when needed)
-- OpenShell revisit (April 7 reminder set — was alpha in March)
-- Cost audit on API spend
+- Testing larger local models for higher-complexity analysis tasks
+- API cost audit — identifying which agent calls drive the most spend
+- Evaluating network policy tooling for tighter inference routing control
