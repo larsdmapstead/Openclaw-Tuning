@@ -62,7 +62,7 @@ Active crons (as of March 2026):
 | Cron | Schedule | Purpose |
 |------|----------|---------|
 | Nightly Self-Review | 1am PT | Reads session logs, auto-applies safe improvements to context files |
-| Nightly GitHub Push | 2am PT | Commits and pushes workspace to private GitHub repo |
+| Nightly Backup | 2am PT | Commits and pushes workspace changes to version control |
 | Dream Cycle | 2am PT | Archives old daily logs, refreshes vector index |
 | DGX Health Check | 6am PT | SMART disk check, container status, posts warnings to Discord |
 | Data Ingest | 7am PT | Runs data pipeline, posts summary to Discord |
