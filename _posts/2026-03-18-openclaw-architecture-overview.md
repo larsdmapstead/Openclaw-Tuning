@@ -10,9 +10,8 @@ Running OpenClaw on an NVIDIA DGX Spark (Grace Blackwell desktop). Here's the cu
 ## Hardware
 
 - **Machine:** NVIDIA DGX Spark — arm64, ~128GB unified memory
-- **OS:** Linux 6.17.0
-- **Local inference:** vLLM/sglang container, port 8888
-- **LAN IP:** static wired — always use this, not the dynamic address
+- **OS:** Linux (arm64)
+- **Local inference:** vLLM/sglang in Docker
 
 ## Agent Roster
 
@@ -41,22 +40,9 @@ Pattern detection → Gemini Flash (cheap, multi-source)
 
 ## Local Model Setup
 
-Running `nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4` via vLLM in Docker:
+Running `nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4` via vLLM in Docker. The DGX Spark's unified memory architecture means the model and GPU share the same memory pool — worth understanding before setting `GPU_MEMORY_UTIL`.
 
-```bash
-docker run -d --name dgx-vllm-nvfp4 --network host --gpus all --ipc=host \
-  -v "${HOME}/.cache/huggingface:/root/.cache/huggingface" \
-  -e VLLM_USE_FLASHINFER_MOE_FP8=0 \
-  -e MODEL=nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4 \
-  -e PORT=8888 \
-  -e GPU_MEMORY_UTIL=0.90 \
-  -e MAX_MODEL_LEN=65536 \
-  avarok/dgx-vllm-nvfp4-kernel:v22
-```
-
-**Note on ports:** Container is configured for port 8000 internally but we access it on 8888. Confirm your actual exposed port — this caused confusion early on.
-
-**Memory warning:** If vLLM is force-killed (not gracefully stopped), ~90GB of unified memory can strand. Only fix is a full reboot.
+**Memory warning:** If vLLM is force-killed (not gracefully stopped), unified memory can strand with no way to reclaim it short of a full reboot. Always stop containers gracefully.
 
 ## Context File System
 
