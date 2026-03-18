@@ -11,7 +11,7 @@ Running OpenClaw on an NVIDIA DGX Spark (Grace Blackwell desktop). Here's the cu
 
 - **Machine:** NVIDIA DGX Spark — arm64, ~128GB unified memory
 - **OS:** Linux (arm64)
-- **Local inference:** vLLM/sglang in Docker
+- **Local inference:** vLLM via avarok's DGX-optimized Docker image
 
 ## Agent Roster
 
@@ -40,7 +40,7 @@ Pattern detection → Gemini Flash (cheap, multi-source)
 
 ## Local Model Setup
 
-Running `nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4` via vLLM in Docker. The DGX Spark's unified memory architecture means the model and GPU share the same memory pool — worth understanding before setting `GPU_MEMORY_UTIL`.
+Running `nvidia/Qwen3-Next-80B-A3B-Instruct-NVFP4` via vLLM using avarok's DGX-optimized container image. The DGX Spark's unified memory architecture means the model and GPU share the same memory pool — worth understanding before setting `GPU_MEMORY_UTIL`.
 
 **Memory warning:** If vLLM is force-killed (not gracefully stopped), unified memory can strand with no way to reclaim it short of a full reboot. Always stop containers gracefully.
 
