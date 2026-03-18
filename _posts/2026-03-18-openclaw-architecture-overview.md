@@ -53,7 +53,7 @@ Instead of stuffing everything into a system prompt, we use a layered file syste
 - `memory/YYYY-MM-DD.md` — daily session logs written by a session watcher
 - `memory/*-context.md` — one file per Discord channel, loaded at session start
 
-This keeps context small and relevant. A #trading session gets trading context. A #pollfinity session gets Pollfinity context. No cross-contamination.
+This keeps context small and relevant — each session loads only what it needs, nothing more.
 
 ## Cron Automation
 
